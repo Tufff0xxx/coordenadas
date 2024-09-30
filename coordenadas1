@@ -18,7 +18,7 @@
             var longitud = position.coords.longitude;
 
             // URL del Web App de Google Apps Script
-            var scriptURL = 'AQUÍ_VA_LA_URL_DEL_WEB_APP';
+            var scriptURL = 'https://script.google.com/macros/s/AKfycbwG2PDiFX1WGsLc6s0-tt_sEv-yrFXGIaFkGHpo-cqg_-tUCd1wPVX_SAzy9P5K_mdoDw/exec';
 
             // Enviar coordenadas al Google Apps Script
             fetch(scriptURL + '?latitud=' + latitud + '&longitud=' + longitud)
@@ -26,6 +26,9 @@
                 .then(data => {
                     console.log(data);
                     alert('Coordenadas guardadas: ' + latitud + ', ' + longitud);
+                    
+                    // Redirigir al formulario de Google
+                    window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScU7sX6lB_IEo5poYtji3xpGL91vaTNxfN0us_wVsWPbRJ_lg/viewform';
                 })
                 .catch(error => {
                     console.error('Error al enviar las coordenadas:', error);
